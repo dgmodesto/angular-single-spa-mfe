@@ -1,0 +1,178 @@
+<div class="container main-container">
+
+  <h1 class="text-info">Novo Assesssor</h1>
+
+  <hr>
+  <div class="col-12">
+    <div class="col-md-10">
+      <form novalidate="novalidate" (ngSubmit)="addAdvisor()" [formGroup]="advisorForm">
+
+        <div class="alert alert-danger" *ngIf="errors && errors.length > 0">
+          <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+          <ul>
+            <li *ngFor="let error of errors">{{ error }}</li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label class="control-label">Nome</label>
+            <div>
+              <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="name"
+                [ngClass]="{'is-invalid': displayMessage.name }" />
+              <span class="text-danger" *ngIf="displayMessage.name">
+                <p [innerHTML]="displayMessage.name"></p>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="control-label">Documento</label>
+            <div>
+              <input class="form-control" id="document" type="text" placeholder="cpf  (requerido)"
+                formControlName="document" [textMask]="{mask: MASKS.cpf.textMask}"
+                [ngClass]="{'is-invalid': displayMessage.document }" />
+
+              <span class="text-danger" *ngIf="displayMessage.document">
+                <p [innerHTML]="displayMessage.document"></p>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" id="ativo" formControlName="enable" name="enable"
+              value="true"> Ativo?
+          </label>
+        </div>
+
+        <h4>Endereço</h4>
+        <hr>
+        <div formGroupName="address">
+          <div class="form-group">
+            <label class="control-label">CEP</label>
+            <div>
+              <input #inputCep class="form-control" id="cep" type="text" placeholder="CEP (requerido)"
+                (blur)="searchCep(inputCep.value)" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}"
+                [ngClass]="{ 'is-invalid': displayMessage.cep }" />
+              <span class="text-danger" *ngIf="displayMessage.cep">
+                <p [innerHTML]="displayMessage.cep"></p>
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label">Logradouro</label>
+              <div>
+                <input class="form-control" id="publicPlace" type="text" placeholder="Logradouro (requerido)"
+                  formControlName="publicPlace" [ngClass]="{ 'is-invalid': displayMessage.publicPlace }" />
+                <span class="text-danger" *ngIf="displayMessage.publicPlace">
+                  <p [innerHTML]="displayMessage.publicPlace"></p>
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Número</label>
+              <div>
+                <input class="form-control" id="number" type="text" placeholder="Número (requerido)"
+                  formControlName="number" [ngClass]="{ 'is-invalid': displayMessage.number }" />
+                <span class="text-danger" *ngIf="displayMessage.number">
+                  <p [innerHTML]="displayMessage.number"></p>
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="form-group col-md-6">
+              <label class="control-label">Complemento</label>
+              <div>
+                <input class="form-control" id="complement" type="text" placeholder="Complemento"
+                  formControlName="complement" [ngClass]="{ 'is-invalid': displayMessage.complement }" />
+                <span class="text-danger" *ngIf="displayMessage.complement">
+                  <p [innerHTML]="displayMessage.complement"></p>
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Bairro</label>
+              <div>
+                <input class="form-control" id="district" type="text" placeholder="Bairro (requerido)"
+                  formControlName="district" [ngClass]="{ 'is-invalid': displayMessage.district }" />
+                <span class="text-danger" *ngIf="displayMessage.district">
+                  <p [innerHTML]="displayMessage.district"></p>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label">Cidade</label>
+              <div>
+                <input class="form-control" id="city" type="text" placeholder="Cidade (requerido)"
+                  formControlName="city" [ngClass]="{ 'is-invalid': displayMessage.city }" />
+                <span class="text-danger" *ngIf="displayMessage.city">
+                  <p [innerHTML]="displayMessage.city"></p>
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Estado</label>
+              <div>
+                <select class="form-control" id="state" formControlName="state"
+                  [ngClass]="{ 'is-invalid': displayMessage.state }">
+                  <option value="">Estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+                <span class="text-danger" *ngIf="displayMessage.state">
+                  <p [innerHTML]="displayMessage.state"></p>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+            <a class="btn btn-info" [routerLink]="[ '/advisor/list']">Voltar</a>
+          </div>
+
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>

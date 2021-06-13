@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [
+      "systemjs"
+    ]
+  },
+  "files": [
+    "src/main.single-spa.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

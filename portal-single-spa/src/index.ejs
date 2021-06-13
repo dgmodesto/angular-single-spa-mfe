@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Portal Single SPA - Lab 1</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta name="importmap-type" content="systemjs-importmap" />
+
+
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "portal-angular-customer": "//localhost:4200/main.js",
+        "portal-angular-auth": "//localhost:4199/main.js",
+        "portal-angular-advisor": "//localhost:4201/main.js",
+        "portal-angular-product": "//localhost:4202/main.js",
+        "portal-angular-container": "//localhost:4203/main.js",
+        "portal-angular-utils": "//localhost:8500/dgmodesto-portal-utils.js"
+      }
+    }
+  </script>
+
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
+
+  <% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@dgmodesto/root-config": "//localhost:9001/dgmodesto-root-config.js",
+        "@dgmodesto/portal-angular-customer": "//localhost:4200/main.js",
+        "@dgmodesto/portal-angular-auth": "//localhost:4199/main.js",
+        "@dgmodesto/portal-angular-advisor": "//localhost:4201/main.js",
+        "@dgmodesto/portal-angular-product": "//localhost:4202/main.js",
+        "@dgmodesto/portal-angular-container": "//localhost:4203/main.js",
+        "@dgmodesto/portal-angular-utils": "//localhost:8500/dgmodesto-portal-utils.js"
+
+      }
+    }
+  </script>
+  <% } %>
+
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <% if (isLocal) { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <% } else { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <% } %>
+
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <nav class="topnav">
+        <application name="@dgmodesto/portal-angular-container"></application>
+      </nav>
+      <div class="main-content">
+        <route path="/angular-auth">
+          <application name="@dgmodesto/portal-angular-auth"></application>
+        </route>
+      </div>
+      <div class="main-content">
+        <route path="/angular-customer/customer/list">
+          <application name="@dgmodesto/portal-angular-customer"></application>
+        </route>
+      </div>
+      <div class="main-content">
+        <route path="/angular-advisor/advisor/list">
+          <application name="@dgmodesto/portal-angular-advisor"></application>
+        </route>
+      </div>
+    </single-spa-router>
+  </template>
+</head>
+
+<body class="vh-100 vw-100">
+  <main>
+
+  </main>
+  <script>
+    System.import('@dgmodesto/root-config');
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+
+</html>

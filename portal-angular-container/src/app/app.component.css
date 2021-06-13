@@ -1,0 +1,8 @@
+.logo-pizza-delicious-header {
+  height: 80px;
+  width: 80px;
+}
+
+.logo-pizza-delicious-header:hover {
+  opacity: 0.7;
+}
