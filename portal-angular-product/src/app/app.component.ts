@@ -1,4 +1,14 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, SimpleChanges, SystemJsNgModuleLoader } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  SystemJsNgModuleLoader,
+} from '@angular/core';
 import { mountRootParcel } from 'single-spa';
 
 @Component({
@@ -14,15 +24,14 @@ export class AppComponent implements OnDestroy {
   customProps = {
     hello: 'Hola',
   };
-  public eventDetail = "-";
+  public eventDetail = '-';
 
   title = 'portal-angular-product';
   listenerEvents: any;
 
-
   constructor(private ref: ChangeDetectorRef) {
     this.utils
-      .then(u => {
+      .then((u) => {
         this.listenerEvents = u;
         this.listenEventMethod();
       })
@@ -32,24 +41,20 @@ export class AppComponent implements OnDestroy {
   }
 
   listenEventMethod() {
-
-    this.listenerEvents.listenEvent('@dgmodesto/portal-angular-product/event-test', event => {
-      console.log('portal-angular-product', event);
-      this.eventDetail = event.detail.describe;
-      this.ref.detectChanges();
-
-    });
+    this.listenerEvents.listenEvent(
+      '@dgmodesto/portal-angular-product/event-test',
+      (event) => {
+        console.log('portal-angular-product', event);
+        this.eventDetail = event.detail.describe;
+        this.ref.detectChanges();
+      }
+    );
   }
-
 
   ngOnDestroy(): void {
-    debugger
-    const appName = 'app-product'
-    const element = document.getElementById(`single-spa-application:${appName}`);
-    element.innerHTML = "";
+    // debugger
+    // const appName = 'app-product'
+    // const element = document.getElementById(`single-spa-application:${appName}`);
+    // element.innerHTML = "";
   }
-
-
-
-
 }

@@ -9,15 +9,27 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'portal-angular-auth';
-
+  utils = System.import('@dgmodesto/portal-angular-utils');
+  emitEventUtil: System.Module;
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
+
+    this.utils
+      .then((u) => {
+        this.emitEventUtil = u;
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
   }
 
   public login(): any {
@@ -31,6 +43,9 @@ export class AppComponent {
       //             // this.router.navigateByUrl('/');
       //         }
       //     );
+      this.emitEventUtil.setLoginAuth('hashdeautenticacao');
+
+      window.location.href = '/portal/angular-advisor/advisor/list';
     }
   }
 }

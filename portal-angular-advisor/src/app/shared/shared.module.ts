@@ -4,17 +4,9 @@ import { ProductComponent } from './components/product/product.component';
 
 import { ParcelModule } from 'single-spa-angular/parcel';
 
-
 @NgModule({
-  declarations: [
-    ProductComponent
-  ],
-  imports: [
-    CommonModule,
-    ParcelModule
-  ],
-  exports: [
-    ProductComponent
-  ]
+  declarations: [ProductComponent],
+  imports: [CommonModule, ParcelModule],
+  exports: [ProductComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

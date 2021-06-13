@@ -14,11 +14,8 @@ export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ];
 
-
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +23,9 @@ export const httpInterceptorProviders = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    ClientModule
+    ClientModule,
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/angular-customer' }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/portal/angular-customer' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

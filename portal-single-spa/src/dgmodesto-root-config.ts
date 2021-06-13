@@ -9,47 +9,31 @@ import { registerApplication, start } from "single-spa";
 //   activeWhen: (location) => location.pathname === '/',
 // });
 
-
 registerApplication({
   name: "@dgmodesto/portal-angular-auth",
-  app: () =>
-    System.import(
-      "@dgmodesto/portal-angular-auth"
-    ),
-  activeWhen: (location) => location.pathname.startsWith("/angular-auth")
+  app: () => System.import("@dgmodesto/portal-angular-auth"),
+  activeWhen: (location) => location.pathname.startsWith("/angular-auth"),
 });
-
-
 
 registerApplication({
   name: "@dgmodesto/portal-angular-container",
-  app: () =>
-    System.import(
-      "@dgmodesto/portal-angular-container"
-    ),
-  activeWhen: ['/']
+  app: () => System.import("@dgmodesto/portal-angular-container"),
+  activeWhen: ["/portal"],
 });
 
 registerApplication({
   name: "@dgmodesto/portal-angular-customer",
-  app: () =>
-    System.import(
-      "@dgmodesto/portal-angular-customer"
-    ),
-  activeWhen: (location) => location.pathname.startsWith("/angular-customer")
+  app: () => System.import("@dgmodesto/portal-angular-customer"),
+  activeWhen: (location) =>
+    location.pathname.startsWith("/portal/angular-customer"),
 });
-
 
 registerApplication({
   name: "@dgmodesto/portal-angular-advisor",
-  app: () =>
-    System.import(
-      "@dgmodesto/portal-angular-advisor"
-    ),
-  activeWhen: (location) => location.pathname.startsWith("/angular-advisor")
+  app: () => System.import("@dgmodesto/portal-angular-advisor"),
+  activeWhen: (location) =>
+    location.pathname.startsWith("/portal/angular-advisor"),
 });
-
-
 
 start({
   urlRerouteOnly: true,

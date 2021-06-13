@@ -12,9 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,9 +21,9 @@ import { SharedModule } from './shared/shared.module';
     ToastrModule.forRoot(),
     HttpClientModule,
     AdvisorModule,
-    SharedModule
+    SharedModule,
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/angular-advisor' }],
-  bootstrap: [AppComponent]
+  providers: [{ provide: APP_BASE_HREF, useValue: '/portal/angular-advisor' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

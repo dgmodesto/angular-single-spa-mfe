@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.0.0",
+    "@angular/animations": "^11.0.9",
     "@angular/common": "~11.0.0",
     "@angular/compiler": "~11.0.0",
     "@angular/core": "~11.0.0",
@@ -22,10 +22,10 @@
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
     "@types/systemjs": "^6.1.0",
-    "systemjs": "^6.9.0",
     "rxjs": "~6.6.0",
     "single-spa": ">=4.0.0",
     "single-spa-angular": "^4.9.2",
+    "systemjs": "^6.9.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
