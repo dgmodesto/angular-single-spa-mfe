@@ -1,26 +1,33 @@
 <div class="row pt-5">
   <div class="container main-container">
-
     <div class="form row" [formGroup]="eventForm">
-      <div class=" col-9 form-group">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="informe o valor do evento" formControlName="description">
+      <div class="col-9 form-group">
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="informe o valor do evento"
+          formControlName="description"
+        />
       </div>
       <div class="col-3">
-        <button (click)="emitEventMethod()" class="btn btn-primary text-light">Disparar Evento</button>
+        <button (click)="emitEventMethod()" class="btn btn-primary text-light">
+          Disparar Evento
+        </button>
       </div>
     </div>
-    <hr class="px-3">
+    <hr class="px-3" />
     <div class="d-flex justify-content-between pb-3">
       <h1 class="text-primary">Lista de Assessores</h1>
 
       <p>
+        <a class="btn btn-primary" [routerLink]="['/advisor/new']"
+          >Novo Assessor</a
+        >
 
-        <a class="btn btn-primary" [routerLink]="['/advisor/new']">Novo Assessor</a>
-
-
+        1
       </p>
-
     </div>
 
     <table class="table table-hover">
@@ -32,35 +39,33 @@
           <th></th>
         </tr>
       </thead>
-      <tr *ngFor="let client of [1,2,3,4,5,6,7,8,9]">
+      <tr *ngFor="let client of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+        <td>Douglas Gomes Modesto</td>
+        <td>341.888.999-78</td>
         <td>
-          Douglas Gomes Modesto
-        </td>
-        <td>
-          341.888.999-78
-        </td>
-        <td>
-          <input [checked]="true" class="check-box" disabled="disabled" type="checkbox">
+          <input
+            [checked]="true"
+            class="check-box"
+            disabled="disabled"
+            type="checkbox"
+          />
         </td>
         <td class="text-right">
-          <a class="btn btn-primary" [routerLink]="['/advisor/detail',0]">
-            <span class="fa fa-search"></span>
-          </a>&nbsp;
-          <a class="btn btn-warning" [routerLink]="['/advisor/edit',1]">
-            <span class="fa fa-pencil-alt"></span>
-          </a>&nbsp;
-          <a class="btn btn-danger" [routerLink]="['/advisor/delete',2]">
+          <a class="btn btn-primary" [routerLink]="['/advisor/detail', 0]">
+            <span class="fa fa-search"></span> </a
+          >&nbsp;
+          <a class="btn btn-warning" [routerLink]="['/advisor/edit', 1]">
+            <span class="fa fa-pencil-alt"></span> </a
+          >&nbsp;
+          <a class="btn btn-danger" [routerLink]="['/advisor/delete', 2]">
             <span class="fa fa-trash"></span>
           </a>
         </td>
       </tr>
     </table>
-
   </div>
-
-
 </div>
-<hr>
+<hr />
 <div class="row d-flex vw-100 justify-content-center pt-4">
   <app-product id="product-parsel"></app-product>
 </div>
