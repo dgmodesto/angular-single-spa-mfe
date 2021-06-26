@@ -1,4 +1,4 @@
-<div class="container main-container">
+<!-- <div class="container main-container">
 
 
   <div class="d-flex justify-content-between pb-3">
@@ -49,4 +49,6 @@
     </div>
   </div>
 
-</div>
+</div> -->
+<app-list *ngIf="hasAccessComponent"></app-list>
+<app-forbidden *ngIf="!hasAccessComponent"></app-forbidden>

@@ -1,0 +1,49 @@
+<div class="container main-container">
+  <div class="d-flex justify-content-between pb-3">
+    <h1 class="text-danger">Lista de Produtos</h1>
+
+    <p>
+      <a class="btn btn-danger text-light">Novo Produto</a>
+    </p>
+  </div>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Nome</th>
+        <th>Documento</th>
+        <th>Ativo?</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tr *ngFor="let client of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+      <td>Guide Cash I</td>
+      <td>341.888.999-78</td>
+      <td>
+        <input
+          [checked]="true"
+          class="check-box"
+          disabled="disabled"
+          type="checkbox"
+        />
+      </td>
+      <td class="text-right">
+        <a class="btn btn-primary" [routerLink]="['/client/detail', 0]">
+          <span class="fa fa-search"></span> </a
+        >&nbsp;
+        <a class="btn btn-warning" [routerLink]="['/client/edit', 1]">
+          <span class="fa fa-pencil-alt"></span> </a
+        >&nbsp;
+        <a class="btn btn-danger" [routerLink]="['/client/delete', 2]">
+          <span class="fa fa-trash"></span>
+        </a>
+      </td>
+    </tr>
+  </table>
+  <div class="card mb-5">
+    <div class="card-body">
+      <h5>Descrição do Evento:</h5>
+      {{ eventDetail }}
+    </div>
+  </div>
+</div>
