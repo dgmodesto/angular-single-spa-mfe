@@ -110,6 +110,10 @@ export class AppComponent {
             "type": "Assessor"
           },
           {
+            "value": "27258c00-7494-4e2a-914b-a0b1658dbaas",
+            "type": "Novo-Assessor"
+          },
+          {
             "value": "27258c00-7494-4e2a-914b-a0b1658dbadd",
             "type": "Cliente"
           },   

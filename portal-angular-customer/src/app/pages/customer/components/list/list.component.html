@@ -1,13 +1,10 @@
 <div class="pt-5 container main-container">
-
-
   <div class="d-flex justify-content-between pb-3">
     <h1 class="text-info">Lista de Clientes</h1>
 
-    <p>
+    <!-- <p>
       <a class="btn btn-info" [routerLink]="['/customer/new']">Novo Cliente</a>
-    </p>
-
+    </p> -->
   </div>
 
   <table class="table table-hover">
@@ -19,24 +16,25 @@
         <th></th>
       </tr>
     </thead>
-    <tr *ngFor="let customer of [1,2,3,4,5,6]">
+    <tr *ngFor="let customer of [1, 2, 3, 4, 5, 6]">
+      <td>Douglas Gomes Modesto</td>
+      <td>341.888.999-78</td>
       <td>
-        Douglas Gomes Modesto
-      </td>
-      <td>
-        341.888.999-78
-      </td>
-      <td>
-        <input [checked]="true" class="check-box" disabled="disabled" type="checkbox">
+        <input
+          [checked]="true"
+          class="check-box"
+          disabled="disabled"
+          type="checkbox"
+        />
       </td>
       <td class="text-right">
-        <a class="btn btn-info" [routerLink]="['/customer/detail',0]">
-          <span class="fa fa-search"></span>
-        </a>&nbsp;
-        <a class="btn btn-warning" [routerLink]="['/customer/edit',1]">
-          <span class="fa fa-pencil-alt"></span>
-        </a>&nbsp;
-        <a class="btn btn-danger" [routerLink]="['/customer/delete',2]">
+        <a class="btn btn-info" [routerLink]="['/customer/detail', 0]">
+          <span class="fa fa-search"></span> </a
+        >&nbsp;
+        <a class="btn btn-warning" [routerLink]="['/customer/edit', 1]">
+          <span class="fa fa-pencil-alt"></span> </a
+        >&nbsp;
+        <a class="btn btn-danger" [routerLink]="['/customer/delete', 2]">
           <span class="fa fa-trash"></span>
         </a>
       </td>

@@ -1,4 +1,6 @@
 import { registerApplication, start } from "single-spa";
+import 'bootstrap/dist/css/bootstrap.css';
+import './styles/global.css'
 
 // registerApplication({
 //   name: "@single-spa/welcome",

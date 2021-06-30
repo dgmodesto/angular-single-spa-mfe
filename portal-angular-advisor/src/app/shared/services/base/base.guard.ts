@@ -1,20 +1,21 @@
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
+import { singleSpaAngular } from 'single-spa-angular';
 import { LocalStorageUtils } from '../../utils/localstorage';
 
 export abstract class BaseGuard {
   private localStorageUtils = new LocalStorageUtils();
+  utils = System.import('@dgmodesto/portal-angular-utils');
 
   constructor(protected router: Router) {}
 
   protected validarClaims(routeAc: ActivatedRouteSnapshot): boolean {
     if (!this.localStorageUtils.obterTokenUsuario()) {
-      this.router.navigate(['angular-auth/'], {
+      this.router.navigate(['/angular-auth'], {
         queryParams: { returnUrl: this.router.url },
       });
     }
 
     let user = this.localStorageUtils.obterUsuario();
-
     let claim: any = routeAc.data[0];
     if (claim !== undefined) {
       let claim = routeAc.data[0]['claim'];
@@ -24,7 +25,7 @@ export abstract class BaseGuard {
           this.navegarAcessoNegado();
         }
 
-        let userClaims = user.claims.find((x) => x.type === claim.nome);
+        let userClaims = user.claims.find((x) => x.type === claim.name);
 
         if (!userClaims) {
           this.navegarAcessoNegado();
@@ -32,7 +33,7 @@ export abstract class BaseGuard {
 
         let valoresClaim = userClaims.value as string;
 
-        if (!valoresClaim.includes(claim.valor)) {
+        if (!valoresClaim.includes(claim.value)) {
           this.navegarAcessoNegado();
         }
       }

@@ -38,7 +38,6 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   listenEventMethod() {

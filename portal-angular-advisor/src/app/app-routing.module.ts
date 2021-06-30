@@ -20,8 +20,8 @@ const routes: Routes = [
         data: [
           {
             claim: {
-              nome: 'Assessor',
-              valor: '27258c00-7494-4e2a-914b-a0b1658dbadc',
+              name: 'Assessor',
+              value: '27258c00-7494-4e2a-914b-a0b1658dbadc',
             },
           },
         ],

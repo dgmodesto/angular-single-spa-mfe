@@ -10,7 +10,12 @@
   /* margin-top: auto; */
   /* margin-bottom: auto; */
   width: 400px;
-  background-color: teal !important;
+  background-color: #cecece !important;
+}
+
+.card-body {
+  background-color: #cecece !important;
+  opacity: 0.8;
 }
 
 .social_icon span {
