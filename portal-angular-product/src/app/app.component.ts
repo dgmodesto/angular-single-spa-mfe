@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { mountRootParcel } from 'single-spa';
 import { AuthGuard } from './shared/services/app/app.guard';
 import { LocalStorageUtils } from './shared/utils/localstorage';
+import { GlobalConstants } from '../globals';
 
 @Component({
   selector: 'angular-product-component',
@@ -24,22 +25,16 @@ export class AppComponent implements OnInit {
   title = 'portal-angular-product';
   utilMethods: any;
 
-  constructor(private ref: ChangeDetectorRef, private guardAuth: AuthGuard) {
-    this.utils
-      .then((u) => {
-        this.utilMethods = u;
-        this.listenEventMethod();
-        this.verifyIfHasPermission();
-      })
-      .catch(function (err) {
-        console.error(err);
-      });
+  constructor(private ref: ChangeDetectorRef, private guardAuth: AuthGuard) {}
+
+  ngOnInit(): void {
+    this.listenEventMethod();
+    this.verifyIfHasPermission();
   }
 
-  ngOnInit(): void {}
-
   private listenEventMethod(): void {
-    this.utilMethods.listenEvent(
+    debugger;
+    GlobalConstants.utilMethod.listenEvent(
       '@dgmodesto/portal-angular-product/event-test',
       (event) => {
         console.log('portal-angular-product', event);
@@ -51,32 +46,10 @@ export class AppComponent implements OnInit {
 
   private verifyIfHasPermission(): void {
     debugger;
-    this.hasAccessComponent = this.utilMethods.verifyIfHasPermissionByClaim(
-      this.guardAuth.claim.name,
-      this.guardAuth.claim.value
-    );
-
-    // let user = this.localStorageUtils.obterUsuario();
-
-    // if (!user.claims) {
-    //   this.hasAccessComponent = false;
-    //   return;
-    // }
-
-    // let userClaims = user.claims.find(
-    //   (x) => x.type === this.guardAuth.claim.name
-    // );
-
-    // if (!userClaims) {
-    //   this.hasAccessComponent = false;
-    //   return;
-    // }
-
-    // let valoresClaim = userClaims.value as string;
-
-    // if (!valoresClaim.includes(this.guardAuth.claim.value)) {
-    //   this.hasAccessComponent = false;
-    //   return;
-    // }
+    this.hasAccessComponent =
+      GlobalConstants.utilMethod.verifyIfHasPermissionByClaim(
+        this.guardAuth.claim.name,
+        this.guardAuth.claim.value
+      );
   }
 }

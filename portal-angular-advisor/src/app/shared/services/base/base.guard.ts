@@ -1,6 +1,7 @@
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { singleSpaAngular } from 'single-spa-angular';
 import { LocalStorageUtils } from '../../utils/localstorage';
+import { GlobalConstants } from '../../../../globals';
 
 export abstract class BaseGuard {
   private localStorageUtils = new LocalStorageUtils();
@@ -10,32 +11,24 @@ export abstract class BaseGuard {
 
   protected validarClaims(routeAc: ActivatedRouteSnapshot): boolean {
     if (!this.localStorageUtils.obterTokenUsuario()) {
-      this.router.navigate(['/angular-auth'], {
-        queryParams: { returnUrl: this.router.url },
-      });
+      debugger;
+      // this.router.navigate(['/angular-auth'], {
+      //   queryParams: { returnUrl: this.router.url },
+      // });
+
+      window.location.href = "/angular-auth'";
     }
 
-    let user = this.localStorageUtils.obterUsuario();
     let claim: any = routeAc.data[0];
     if (claim !== undefined) {
       let claim = routeAc.data[0]['claim'];
+      var teste = GlobalConstants.utilMethod.verifyIfHasPermissionByClaim(
+        claim.name,
+        claim.value
+      );
 
-      if (claim) {
-        if (!user.claims) {
-          this.navegarAcessoNegado();
-        }
-
-        let userClaims = user.claims.find((x) => x.type === claim.name);
-
-        if (!userClaims) {
-          this.navegarAcessoNegado();
-        }
-
-        let valoresClaim = userClaims.value as string;
-
-        if (!valoresClaim.includes(claim.value)) {
-          this.navegarAcessoNegado();
-        }
+      if (!teste) {
+        this.navegarAcessoNegado();
       }
     }
 

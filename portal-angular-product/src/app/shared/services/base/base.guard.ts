@@ -8,7 +8,8 @@ export abstract class BaseGuard {
 
   protected validarClaims(routeAc: ActivatedRouteSnapshot): boolean {
     if (!this.localStorageUtils.obterTokenUsuario()) {
-      this.router.navigate(['angular-auth/'], {
+      debugger;
+      this.router.navigate(['/angular-auth'], {
         queryParams: { returnUrl: this.router.url },
       });
     }

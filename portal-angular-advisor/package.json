@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201 --live-reload false",
+    "start:local": "ng serve --port 3201 --project portal-angular-advisor-local",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

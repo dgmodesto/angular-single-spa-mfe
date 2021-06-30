@@ -2,10 +2,10 @@
 @import url("./bootstrap.css");
 @import url("./bootstrap.min.css");
 
-body {
+/* body {
   font-family: "Montserrat", sans-serif;
-  /* default font size is 16px */
+  
   font-size: 1.2rem;
   background-color: #efefef;
   margin: 0;
-}
+} */
