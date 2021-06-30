@@ -1,15 +1,6 @@
 import { registerApplication, start } from "single-spa";
-import 'bootstrap/dist/css/bootstrap.css';
-import './styles/global.css'
 
-// registerApplication({
-//   name: "@single-spa/welcome",
-//   app: () =>
-//     System.import(
-//       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-//     ),
-//   activeWhen: (location) => location.pathname === '/',
-// });
+import './styles/global.css'
 
 registerApplication({
   name: "@dgmodesto/portal-angular-auth",

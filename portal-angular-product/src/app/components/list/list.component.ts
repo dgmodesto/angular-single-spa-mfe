@@ -37,8 +37,7 @@ export class ListComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   listenEventMethod() {
     this.listenerEvents.listenEvent(
