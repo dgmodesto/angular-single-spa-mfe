@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
   eventForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    var utils = System.import('@dgmodesto/portal-angular-utils');
+    var utils = System.import('portal-angular-utils');
 
     utils
       .then((u) => {

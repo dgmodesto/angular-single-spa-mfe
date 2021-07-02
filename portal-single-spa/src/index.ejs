@@ -21,6 +21,7 @@
     {
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "root-config": "//localhost:9001/dgmodesto-root-config.js",
         "portal-angular-customer": "//localhost:4200/main.js",
         "portal-angular-auth": "//localhost:4199/main.js",
         "portal-angular-advisor": "//localhost:4201/main.js",
@@ -33,7 +34,7 @@
 
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
-  <% if (isLocal) { %>
+  <!-- <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
@@ -48,7 +49,7 @@
       }
     }
   </script>
-  <% } %>
+  <% } %> -->
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
@@ -70,21 +71,21 @@
   <template id="single-spa-layout">
     <single-spa-router>
       <nav class="topnav">
-        <application name="@dgmodesto/portal-angular-container"></application>
+        <application name="portal-angular-container"></application>
       </nav>
       <div class="main-content">
         <route path="/angular-auth">
-          <application name="@dgmodesto/portal-angular-auth"></application>
+          <application name="portal-angular-auth"></application>
         </route>
       </div>
       <div class="main-content">
         <route path="/angular-customer/customer/list">
-          <application name="@dgmodesto/portal-angular-customer"></application>
+          <application name="portal-angular-customer"></application>
         </route>
       </div>
       <div class="main-content">
         <route path="/angular-advisor/advisor/list">
-          <application name="@dgmodesto/portal-angular-advisor"></application>
+          <application name="portal-angular-advisor"></application>
         </route>
       </div>
     </single-spa-router>
@@ -96,7 +97,7 @@
 
   </main>
   <script>
-    System.import('@dgmodesto/root-config');
+    System.import('root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 

@@ -4,6 +4,11 @@
     "outDir": "./out-tsc/app",
     "types": ["systemjs"]
   },
-  "files": ["src/main.single-spa.ts"],
+  "files": [
+    "src/main.single-spa.ts", 
+    "src/main.ts",
+    "src/polyfills.ts",
+    "src/dgmodesto-portal-utils.ts"
+  ],
   "include": ["src/**/*.d.ts"]
 }

@@ -31,7 +31,7 @@ import { GlobalConstants } from '../globals';
 })
 export class AppModule implements DoBootstrap {
   ngDoBootstrap(appRef: ApplicationRef) {
-    System.import('@dgmodesto/portal-angular-utils').then((result) => {
+    System.import('portal-angular-utils').then((result) => {
       GlobalConstants.utilMethod = result;
 
       appRef.bootstrap(AppComponent);

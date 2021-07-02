@@ -5,7 +5,7 @@ import { GlobalConstants } from '../../../../globals';
 
 export abstract class BaseGuard {
   private localStorageUtils = new LocalStorageUtils();
-  utils = System.import('@dgmodesto/portal-angular-utils');
+  utils = System.import('portal-angular-utils');
 
   constructor(protected router: Router) {}
 

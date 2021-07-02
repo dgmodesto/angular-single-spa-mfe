@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4199 --live-reload false",
+    "start:local": "ng serve --port 3199 --open --project portal-angular-auth-local",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -18,7 +19,7 @@
     "@angular/compiler": "~11.0.0",
     "@angular/core": "~11.0.0",
     "@angular/forms": "~11.0.0",
-    "@angular/platform-browser": "~11.0.0",
+    "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.0.0",
     "@angular/router": "~11.0.0",
     "@types/systemjs": "^6.1.0",

@@ -1,4 +1,4 @@
-<div class="container vh-100">
+<!-- <div class="container vh-100">
   <div class="d-flex justify-content-center align-items-center h-100">
     <div class="card">
       <div class="card-header">
@@ -42,7 +42,6 @@
           </div>
           <div class="form-group">
             <input
-              type="submit"
               (click)="login()"
               value="Login"
               class="btn float-right login_btn"
@@ -52,12 +51,13 @@
       </div>
       <div class="card-footer">
         <div class="d-flex justify-content-center links">
-          <a href="#" class="links">Criar conta</a>
+          <a [routerLink]="['/novo-usuario']" class="links">Criar conta</a>
         </div>
         <div class="d-flex justify-content-center links">
-          <a href="#" class="links">Esqueceu sua senha?</a>
+          <a [routerLink]="['/nova-senha']" class="links">Esqueceu sua senha?</a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<router-outlet></router-outlet>

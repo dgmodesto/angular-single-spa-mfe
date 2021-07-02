@@ -11,7 +11,7 @@ import { GlobalConstants } from '../globals';
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  utils = System.import('@dgmodesto/portal-angular-utils');
+  utils = System.import('portal-angular-utils');
   config = {};
   mountRootParcel = mountRootParcel;
   customProps = {

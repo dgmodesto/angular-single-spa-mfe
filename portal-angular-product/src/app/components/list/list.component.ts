@@ -15,7 +15,7 @@ import { mountRootParcel, Parcel } from 'single-spa';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListComponent implements OnInit {
-  utils = System.import('@dgmodesto/portal-angular-utils');
+  utils = System.import('portal-angular-utils');
   config = {};
   mountRootParcel = mountRootParcel;
   customProps = {

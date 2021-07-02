@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
-import { LocalStorageUtils } from './utils/localstorage';
+import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageUtils } from 'src/app/utils/localstorage';
 
 @Component({
-  selector: 'auth-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class AppComponent {
+export class LoginComponent implements OnInit {
   utils = System.import('portal-angular-utils');
   emitEventUtil: System.Module;
   public form: FormGroup;
@@ -32,6 +32,8 @@ export class AppComponent {
       .catch(function (err) {
         console.error(err);
       });
+  }
+  ngOnInit(): void {
   }
 
   public login(): any {

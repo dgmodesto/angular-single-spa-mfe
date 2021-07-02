@@ -24,6 +24,6 @@ export class ProductComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.config = () => System.import('@dgmodesto/portal-angular-product');
+    this.config = () => System.import('portal-angular-product');
   }
 }
